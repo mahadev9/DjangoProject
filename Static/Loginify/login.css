@@ -20,6 +20,7 @@ body {
 }
 
 .loginForm input[type="text"],
+.loginForm input[type="email"],
 .loginForm input[type="password"] {
     width: -webkit-fill-available;
     padding: 12px;
