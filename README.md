@@ -1,8 +1,10 @@
 # Login System Project
 
 ## Admin Portal
-http://localhost:8000/admin \
-username: admin \
+http://localhost:8000/admin
+
+username: admin
+
 password: admin
 
 ## Hello Page
@@ -18,4 +20,4 @@ http://localhost:8000/loginify/signup
 http://localhost:8000/loginify/user-details
 
 ## User Details by email (GET, PUT, DELETE, PATCH)
-http://localhost:8000/loginify/user-details-by-email/<email>
+http://localhost:8000/loginify/user-details-by-email/$email
