@@ -1,0 +1,37 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login | Django Project</title>
+    <link rel="stylesheet" href="{% static 'Loginify/login.css' %}">
+    <!-- <link rel="icon" href="./favicon.ico" type="image/x-icon"> -->
+</head>
+
+<body>
+    <main>
+        <div class="loginBox">
+            {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                <div class="alert {{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <form method="post" class="loginForm">
+                {%csrf_token %}
+                {{loginForm.as_p}}
+                <input type="submit" value="Login">
+            </form>
+            <hr>
+            <a href="/loginify/signup" class="signupBtn">Signup</a>
+        </div>
+    </main>
+    <!-- <script src="index.js"></script> -->
+</body>
+
+</html>

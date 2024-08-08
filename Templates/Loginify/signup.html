@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Signup | Django Project</title>
+    <link rel="stylesheet" href="{% static 'Loginify/signup.css' %}">
+    <!-- <link rel="icon" href="./favicon.ico" type="image/x-icon"> -->
+</head>
+
+<body>
+    <main>
+        <div class="signupBox">
+            <form method="post" class="signupForm">
+                {%csrf_token %}
+                {{signupForm.as_p}}
+                <input type="submit" value="Signup">
+            </form>
+            <hr>
+            <a href="/loginify/login" class="loginBtn">Login</a>
+        </div>
+    </main>
+    <!-- <script src="index.js"></script> -->
+</body>
+
+</html>
