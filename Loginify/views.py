@@ -62,7 +62,7 @@ def user_details(request):
             return JsonResponse(serialized_data.data, safe=False)
         except:
             return JsonResponse({"error": "Failed to fetch data"}, status=500)
-        
+
     if request.method == 'POST':
         input_data = json.loads(request.body)
         serialized_data = UserDetailsSerializer(data=input_data)
@@ -72,7 +72,8 @@ def user_details(request):
             return JsonResponse(serialized_data.data, status=201)
         else:
             return JsonResponse(serialized_data.errors, status=400)
-    
+
+
 def user_details_by_email(request, email):
     if request.method == 'GET':
         try:
@@ -81,7 +82,7 @@ def user_details_by_email(request, email):
             return JsonResponse(serialized_data.data, safe=False)
         except:
             return JsonResponse({"error": "Failed to fetch data"}, status=500)
-        
+
     if request.method == 'PUT':
         try:
             user_data = UserDetails.objects.get(email=email)
@@ -93,7 +94,7 @@ def user_details_by_email(request, email):
                 return JsonResponse(serialized_data.data, status=200)
         except:
             return JsonResponse({"error": "Failed to update data"}, status=500)
-        
+
     if request.method == 'DELETE':
         try:
             user_data = UserDetails.objects.get(email=email)
@@ -101,12 +102,13 @@ def user_details_by_email(request, email):
             return JsonResponse({"message": "Data deleted successfully"}, status=204)
         except:
             return JsonResponse({"error": "Failed to delete data"}, status=500)
-        
+
     if request.method == 'PATCH':
         try:
             user_data = UserDetails.objects.get(email=email)
             input_data = json.loads(request.body)
-            serialized_data = UserDetailsSerializer(user_data, data=input_data, partial=True)
+            serialized_data = UserDetailsSerializer(
+                user_data, data=input_data, partial=True)
             if serialized_data.is_valid():
                 serialized_data.save()
                 return JsonResponse(serialized_data.data, status=200)

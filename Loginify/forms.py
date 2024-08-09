@@ -4,9 +4,9 @@ from .models import UserDetails
 
 
 # class LoginForm(forms.ModelForm):
-    # class Meta:
-    #     model = UserDetails
-    #     fields = ['email', 'password']
+#     class Meta:
+#         model = UserDetails
+#         fields = ['email', 'password']
 
 class LoginForm(forms.Form):
     email = forms.EmailField()
